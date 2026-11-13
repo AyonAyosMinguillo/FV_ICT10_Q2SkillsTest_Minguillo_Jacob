@@ -6,6 +6,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
     <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+20&family=Tiny5:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
     <title>Skills Test</title>
     
     <style>
@@ -17,28 +21,26 @@
             align-items: center;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             text-align: center;
+            font-family: "Jersey 20", sans-serif;
         }
-        
         .main-card {
             width: 100%;
             max-width: 550px;
             background: #ffffff;
-            border: 3px solid rgb(122, 185, 86);
+            border: 3px solid rgb(82, 107, 245);
             border-radius: 15px;
             box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
             padding: 35px;
             margin: 15px;
         }
-
         h1 {
-            color: rgb(26, 136, 4);
+            color: rgb(82, 107, 245);
             font-weight: 700;
             margin-bottom: 25px;
-        }
-
+        }   
         #result1 {
             display: none;
-            border: 3px solid rgb(73, 193, 17);
+            border: 3px solid rgb(82, 107, 245);
             box-shadow: 0px 5px 15px rgba(200, 200, 200, 0.5);
             border-radius: 10px;
             padding: 20px;
@@ -47,35 +49,34 @@
             font-size: 20px;
             text-align: left;
         }
-
         .property-row {
             margin-bottom: 8px;
         }
-
         .property-label {
             font-weight: 600;
-            color: rgb(68, 136, 4);
+            color: rgb(82, 107, 245);
         }
     </style>
 </head>
 <body>
 
     <div class="main-card">
-        <h1>da    NON-METALS</h1>
-        <p class="text-muted mb-4">Enter a non-metal symbol (e.g., H, C, O, Cl) to view details.</p>
+        <h1>WalangAsa</h1>
+        <h2>Weather Instrument Search</h2>
+        <p class="text-muted mb-4">Look for valid weather instruments and see their details.</p>
 
         <div class="input-group mb-3">
-            <input type="text" id="nonmetal" class="form-control form-control-lg" placeholder="Enter Symbol..." aria-label="Element Symbol">
-            <button class="btn btn-primary btn-lg" type="button" py-click="find" style="background-color: rgb(4, 136, 22); border-color: rgb(4, 50, 136);">Search</button>
+            <input type="text" id="Weather" class="form-control form-control-lg" placeholder="Enter Instrument Name..." aria-label="Instrument Name">
+            <button class="btn btn-primary btn-lg" type="button" py-click="find" style="background-color: rgb(82, 107, 245); border-color: rgb(82, 107, 245);">Search</button>
         </div>
 
         <div id="result1">
-            <div class="property-row"><span class="property-label">Symbol:</span> <span id="symbol">-</span></div>
-            <div class="property-row"><span class="property-label">Name:</span> <span id="name">-</span></div>
-            <div class="property-row"><span class="property-label">Atomic Number:</span> <span id="number">-</span></div>
-            <div class="property-row"><span class="property-label">Atomic Mass:</span> <span id="mass">-</span></div>
+            <h2>Description</h2>
+            <div class="property-row"><span class="property-label">Measure</span> <span id="msr">-</span></div>
+            <div class="property-row"><span class="property-label">Unit of Measurement:</span> <span id="uom">-</span></div>
+            <div class="property-row"><span class="property-label">Purpose:</span> <span id="prp">-</span></div>
         </div>
-         <p style="color: #e01414; font-size: 14px;">PLEASE note: Only NON-METAL elements are supported.</p>
+         <p style="color: #e01414; font-size: 14px;">Examples: Thermometer, Barometer, Anemometer, Hygrometer, Rain Gauge, Wind Vane, Weather Balloon, Pyranometer</p>
     </div>
 
     <script type="py" src="main.py"></script>
