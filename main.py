@@ -1,42 +1,34 @@
-from pyscript import document   # type: ignore[reportMissingImports]
+from pyscript import document, display # type: ignore
 
-# Dictionary containing element information
-# element symbol, element name, atomic number, atomic mass
-nonmetals = {
-    "H": ("H", "Hydrogen", 1, 1.008),
-    "He": ("He", "Helium", 2, 4.003),
-    "C": ("C", "Carbon", 6, 12.011),
-    "N": ("N", "Nitrogen", 7, 14.007),
-    "O": ("O", "Oxygen", 8, 15.999),
-    "F": ("F", "Fluorine", 9, 18.998),
-    "Ne": ("Ne", "Neon", 10, 20.180),
-    "P": ("P", "Phosphorus", 15, 30.974),
-    "S": ("S", "Sulfur", 16, 32.065),
-    "Cl": ("Cl", "Chlorine", 17, 35.453),
-    "Ar": ("Ar", "Argon", 18, 39.948),
-    "Se": ("Se", "Selenium", 34, 78.971),
-    "Br": ("Br", "Bromine", 35, 79.904),
-    "Kr": ("Kr", "Krypton", 36, 83.798),
-    "I": ("I", "Iodine", 53, 126.904),
-    "Xe": ("Xe", "Xenon", 54, 131.293),
-    "Rn": ("Rn", "Radon", 86, 222),
-    "At": ("At", "Astatine", 85, 210),
+# Dictionary containing weather instrument information
+# instrument name, measurement, unit of measurement, purpose
+Weather = {
+    "Thermometer": ("Thermometer", "Air Temperature", "Degrees Celsius (°C)", "Measures how hot or cold the air is"),
+    "Barometer": ("Barometer", "Atmospheric Pressure", "Hectopascals (hPa)", "Measures air pressure to help monitor weather changes."),
+    "Anemometer": ("Anemometer", "Wind Speed", "Kilometers per hour (km/h)", "Measures how fast the wind is blowing."),
+    "Hygrometer": ("Hygrometer", "Relative Humidity", "Percent (%)", "Measures the amount of moisture in the air."),
+    "Rain Gauge": ("Rain Gauge", "Precipitation", "Millimeters (mm)", "Measures the amount of rainfall in an area."),
+    "Wind Vane": ("Wind Vane", "Wind Direction", "Cardinal Directions", "Identifies the direction from which the wind is blowing."),
+    "Weather Balloon": ("Weather Balloon", "Atmospheric Conditions", "Varies", "Collects atmospheric data at different altitudes."),
+    "Pyranometer": ("Pyranometer", "Solar Radiation", "Watts per square meter (W/m²)", "Measures incoming solar radiation."),
 }
 
-# Function to search for an element
+# Function to search for an instrument
 def find(e=None):
-    # Get the input value from HTML
-    nonmetal = document.getElementById("nonmetal").value.strip()
-    symbol = nonmetal.upper() if nonmetal else ""
+    # Get the input value from HTML and convert to Title Case
+    Weeder = document.getElementById("Weather").value.strip()
+    symbol = Weeder.title() if Weeder else ""
 
-    # Get from the Dictionary, if the provided symbol is not listed, the system shall reply with "Unsupported Element Detected"
-    result = nonmetals.get(symbol, ("Unsupported Element Detected", "Value Unknown", "Value Unknown", "Value Unknown"))
+    # Get from the dictionary; return fallback values if not found
+    result = Weather.get(symbol, ("Not Found", "Unsupported Instrument", "N/A", "N/A"))
 
     # Display the result in HTML
-    document.getElementById("symbol").innerText = result[0]
-    document.getElementById("name").innerText = result[1]
-    document.getElementById("number").innerText = result[2]
-    document.getElementById("mass").innerText = result[3]
+    document.getElementById("msr").innerText = result[1]
+    document.getElementById("uom").innerText = result[2]
+    document.getElementById("prp").innerText = result[3]
+
+    # Reveal the result box once the button is pressed
+    document.getElementById("result1").style.display = "block"
 
     # Reveal the result box once the button is pressed
     document.getElementById("result1").style.display = "block"
